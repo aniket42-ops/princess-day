@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-body: 'Nunito', system-ui, sans-serif;
+
+  --color-cream: #fdf8f3;
+  --color-blush: #f7e4ea;
+  --color-lavender: #e8ddf5;
+  --color-champagne: #d4af37;
+  --color-champagne-soft: #e8d5a3;
+  --color-rose-deep: #c97b8a;
+  --color-plum: #5c4a6e;
+  --color-night: #2a1f33;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 min-h-dvh overflow-x-hidden antialiased;
+    font-family: var(--font-body);
+    color: var(--color-night);
+    background: var(--color-cream);
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-rose-deep) 35%, white);
+  }
+}
+
+.glass {
+  background: color-mix(in srgb, white 72%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, white 80%, var(--color-champagne-soft));
+  box-shadow:
+    0 8px 32px color-mix(in srgb, var(--color-plum) 12%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 90%, transparent);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #b8860b, #f4e4bc, #c9a227);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-fairytale {
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -20%, color-mix(in srgb, var(--color-lavender) 90%, white), transparent 55%),
+    radial-gradient(ellipse 80% 50% at 100% 50%, color-mix(in srgb, var(--color-blush) 70%, transparent), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 0% 80%, color-mix(in srgb, var(--color-lavender) 50%, transparent), transparent 45%),
+    linear-gradient(180deg, #fff9f5 0%, #f5eef8 45%, #faf3e8 100%);
+}
+
+.section-padding {
+  @apply px-5 py-20 md:px-10 md:py-28 lg:px-16;
+}
+
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow-lg;
+}
+
+.custom-cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-champagne);
+  box-shadow: 0 0 12px var(--color-champagne-soft);
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease-out;
+  mix-blend-mode: multiply;
+}
+
+.custom-cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9998;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--color-champagne) 60%, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}
+
+.placeholder-art {
+  background-size: cover;
+  background-position: center;
+}
+
+.placeholder-art--rose-dawn {
+  background-image: linear-gradient(145deg, #fce4ec, #f8bbd9 40%, #e1bee7);
+}
+.placeholder-art--lavender-dream {
+  background-image: linear-gradient(145deg, #ede7f6, #d1c4e9, #f3e5f5);
+}
+.placeholder-art--golden-hour {
+  background-image: linear-gradient(145deg, #fff8e1, #ffe0b2, #f8bbd9);
+}
+.placeholder-art--blush-petal {
+  background-image: linear-gradient(145deg, #fce4ec, #f8bbd0, #fff9c4);
+}
+.placeholder-art--first-meet {
+  background-image: linear-gradient(160deg, #e8eaf6, #f8bbd9);
+}
+.placeholder-art--first-talk {
+  background-image: linear-gradient(160deg, #f3e5f5, #c5cae9);
+}
+.placeholder-art--special-memory {
+  background-image: linear-gradient(160deg, #fff3e0, #f8bbd9);
+}
+.placeholder-art--favorite {
+  background-image: linear-gradient(160deg, #fce4ec, #e1bee7, #fff8e1);
+}
+.placeholder-art--anniversary {
+  background-image: linear-gradient(160deg, #fff8e1, #d4af37 80%, #fce4ec);
+}
+.placeholder-art--princess-day {
+  background-image: linear-gradient(160deg, #f3e5f5, #ffd54f 50%, #f48fb1);
+}
